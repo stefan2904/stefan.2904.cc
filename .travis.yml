@@ -9,6 +9,7 @@ script:
   - echo 'from commit $TRAVIS_COMMIT' >> $STATUSFILE
   - echo 'by $USER' >> $STATUSFILE
   - echo '-->' >> $STATUSFILE
+  - cat $STATUSFILE
 
 env:
   global:
