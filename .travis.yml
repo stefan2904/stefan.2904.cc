@@ -1,14 +1,14 @@
 language: c
 
 script:
-  - echo 'deploying ...'
-  - echo '' >> $STATUSFILE
-  - echo '<!--' >> $STATUSFILE
-  - echo 'last deployed at' >> $STATUSFILE
+  - echo "deploying ..."
+  - echo "" >> $STATUSFILE
+  - echo "<!--" >> $STATUSFILE
+  - echo "last deployed at" >> $STATUSFILE
   - date >> $STATUSFILE
-  - echo 'from commit $TRAVIS_COMMIT' >> $STATUSFILE
-  - echo 'by $USER' >> $STATUSFILE
-  - echo '-->' >> $STATUSFILE
+  - echo "from commit $TRAVIS_COMMIT" >> $STATUSFILE
+  - echo "by $USER" >> $STATUSFILE
+  - echo "-->" >> $STATUSFILE
   - cat $STATUSFILE
 
 env:
