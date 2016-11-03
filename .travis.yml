@@ -9,7 +9,6 @@ script:
   - echo "from commit $TRAVIS_COMMIT" >> $STATUSFILE
   - echo "by $USER" >> $STATUSFILE
   - echo "-->" >> $STATUSFILE
-  - cat $STATUSFILE
 
 env:
   global:
@@ -20,4 +19,5 @@ env:
 
 deploy:
   provider: script
+  skip_cleanup: true
   script: find . -not -path '*/\.*' -type f -exec echo {} \; -exec curl -u $FTPUSER:$FTPPASSWORD --ftp-create-dirs -T {} ftp://$FTPSERVER/\{\} \;
