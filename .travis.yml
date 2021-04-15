@@ -22,4 +22,4 @@ env:
 deploy:
   provider: script
   skip_cleanup: true
-  script: find . -not -path '*/\.*' -type f -exec echo {} \; -exec curl --ftp-create-dirs -T {} sftp://$FTPUSER:$FTPPASSWORD@$FTPSERVER/\{\} \;
+  script: find . -not -path '*/\.*' -type f -exec echo {} \; -exec curl --insecure --ftp-create-dirs -T {} sftp://$FTPUSER:$FTPPASSWORD@$FTPSERVER/\{\} \;
