@@ -1,4 +1,6 @@
 language: c
+os: linux
+dist: focal
 
 script:
   - echo "deploying ..."
@@ -20,4 +22,4 @@ env:
 deploy:
   provider: script
   skip_cleanup: true
-  script: find . -not -path '*/\.*' -type f -exec echo {} \; -exec curl -u $FTPUSER:$FTPPASSWORD --ftp-create-dirs -T {} ftp://$FTPSERVER/\{\} \;
+  script: find . -not -path '*/\.*' -type f -exec echo {} \; -exec curl --ftp-create-dirs -T {} sftp://$FTPUSER:$FTPPASSWORD@$FTPSERVER/\{\} \;
