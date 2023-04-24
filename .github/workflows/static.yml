@@ -38,6 +38,19 @@ jobs:
       - name: Setup Pages
         uses: actions/configure-pages@v3
         
+      - name: Run script
+        run: |
+          echo "" >> $STATUSFILE
+          echo "<!--" >> $STATUSFILE
+          echo "last deployed by $RUNNER_NAME at" >> $STATUSFILE
+          date >> $STATUSFILE
+          echo "from $GITHUB_REPOSITORY commit $GITHUB_SHA" >> $STATUSFILE
+          echo "by $GITHUB_ACTOR" >> $STATUSFILE
+          echo "-->" >> $STATUSFILE
+        shell: bash
+        env:
+          STATUSFILE: index.html
+        
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
         with:
